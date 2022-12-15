@@ -9,19 +9,19 @@ public class GamePanel extends JPanel implements ActionListener {
 
 	static final int SCREEN_WIDTH = 600;
 	static final int SCREEN_HEIGHT = 600;
-	static final int UNIT_SIZE = 40;
+	static final int UNIT_SIZE = 60;
 	static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT) / (UNIT_SIZE * UNIT_SIZE);
-	static final int DELAY = 175;
+	static final int DELAY = 300;
 	final int x[] = new int[GAME_UNITS];
 	final int y[] = new int[GAME_UNITS];
-	int bodyParts = 6;
-	int applesEaten;
+	int bodyParts = 2;
+	int foodEaten;
 
 	// types of food
 	int appleX, appleY;
-	int pineappleX, pineappleY, pineSpawn;
+	int pineappleX, pineappleY;
 	int avocadoX, avocadoY;
-	int heartX, heartY;
+	int starX, starY;
 
 	int rng;
 	char direction = 'R';
@@ -61,6 +61,10 @@ public class GamePanel extends JPanel implements ActionListener {
 
 			g.setColor(Color.yellow);
 			g.fillOval(pineappleX, pineappleY, UNIT_SIZE, UNIT_SIZE);
+
+			g.setColor(Color.green);
+			g.fillOval(avocadoX, avocadoY, UNIT_SIZE, UNIT_SIZE);
+
 			for (int i = 0; i < bodyParts; i++) {
 				if (i == 0) {
 					g.setColor(Color.green);
@@ -75,7 +79,7 @@ public class GamePanel extends JPanel implements ActionListener {
 			g.setColor(Color.red);
 			g.setFont(new Font("Ink Free", Font.BOLD, 40));
 			FontMetrics metrics = getFontMetrics(g.getFont());
-			g.drawString("Score: " + applesEaten, (SCREEN_WIDTH - metrics.stringWidth("Score: " + applesEaten)) / 2,
+			g.drawString("Score: " + foodEaten, (SCREEN_WIDTH - metrics.stringWidth("Score: " + foodEaten)) / 2,
 					g.getFont().getSize());
 		} else {
 			gameOver(g);
@@ -90,7 +94,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		if (result <= 4 && result >= 0) {
 			newPineapple();
 		} else if (result <= 7 && result >= 5) {
-			System.out.println("Avocado!");
+			newAvocado();
 		} else{
 			System.out.println("Heart!");
 		}
@@ -99,11 +103,35 @@ public class GamePanel extends JPanel implements ActionListener {
 	public void newApple() {
 		appleX = random.nextInt((int) (SCREEN_WIDTH / UNIT_SIZE)) * UNIT_SIZE;
 		appleY = random.nextInt((int) (SCREEN_HEIGHT / UNIT_SIZE)) * UNIT_SIZE;
+		//set other entity oob
+		pineappleX = 100*UNIT_SIZE;
+		pineappleY = 100*UNIT_SIZE;
+		avocadoX = 100*UNIT_SIZE;
+		avocadoY = 100*UNIT_SIZE;
+		starX = 100*UNIT_SIZE;
+		starY = 100*UNIT_SIZE;
 	}
 
 	public void newPineapple() {
 		pineappleX = random.nextInt((int) (SCREEN_WIDTH / UNIT_SIZE)) * UNIT_SIZE;
 		pineappleY = random.nextInt((int) (SCREEN_HEIGHT / UNIT_SIZE)) * UNIT_SIZE;
+		appleX = 100*UNIT_SIZE;
+		appleY = 100*UNIT_SIZE;
+		avocadoX = 100*UNIT_SIZE;
+		avocadoY = 100*UNIT_SIZE;
+		starX = 100*UNIT_SIZE;
+		starY = 100*UNIT_SIZE;
+	}
+
+	public void newAvocado() {
+		avocadoX = random.nextInt((int) (SCREEN_WIDTH / UNIT_SIZE)) * UNIT_SIZE;
+		avocadoY = random.nextInt((int) (SCREEN_HEIGHT / UNIT_SIZE)) * UNIT_SIZE;
+		appleX = 100*UNIT_SIZE;
+		appleY = 100*UNIT_SIZE;
+		pineappleX = 100*UNIT_SIZE;
+		pineappleY = 100*UNIT_SIZE;
+		starX = 100*UNIT_SIZE;
+		starY = 100*UNIT_SIZE;
 	}
 
 	public void move() {
@@ -132,7 +160,17 @@ public class GamePanel extends JPanel implements ActionListener {
 	public void checkFood() {
 		if ((x[0] == appleX) && (y[0] == appleY)) {
 			bodyParts++;
-			applesEaten++;
+			foodEaten++;
+			randomNumber();
+		}
+		else if ((x[0] == pineappleX) && (y[0] == pineappleY)){
+			bodyParts++;
+			foodEaten = foodEaten + 2;
+			randomNumber();
+		}
+		else if ((x[0] == avocadoX) && (y[0] == avocadoY)){
+			bodyParts++;
+			foodEaten = foodEaten + 3;
 			randomNumber();
 		}
 	}
@@ -171,7 +209,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		g.setColor(Color.red);
 		g.setFont(new Font("Ink Free", Font.BOLD, 40));
 		FontMetrics metrics1 = getFontMetrics(g.getFont());
-		g.drawString("Score: " + applesEaten, (SCREEN_WIDTH - metrics1.stringWidth("Score: " + applesEaten)) / 2,
+		g.drawString("Score: " + foodEaten, (SCREEN_WIDTH - metrics1.stringWidth("Score: " + foodEaten)) / 2,
 				g.getFont().getSize());
 		// Game Over text
 		g.setColor(Color.red);
