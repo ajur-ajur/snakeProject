@@ -252,11 +252,11 @@ public class GamePanel extends JPanel implements ActionListener {
 		g.setFont(new Font("Helvetica", Font.BOLD, 75));
 		FontMetrics metrics2 = getFontMetrics(g.getFont());
 		g.drawString("Game Over", (SCREEN_WIDTH - metrics2.stringWidth("Game Over")) / 2, SCREEN_HEIGHT / 2);
+		new GameOver();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
 		if (running) {
 			move();
 			checkFood();
