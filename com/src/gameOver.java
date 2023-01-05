@@ -1,23 +1,25 @@
-package src;
+package com.src;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
-public class GameOver extends JFrame implements ActionListener {
-    public JFrame overFrame;
-    public JButton yes, no, upload;
+public class gameOver implements ActionListener {
+    JFrame over = new JFrame();
+    public JButton yes, no;
     public JTextField username;
     public JLabel input, question;
     public String uName = "";
+    int scoreUP;
 
-    GameOver(){
-        setLayout(null);
-        setSize(300, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-        setResizable(false);
-        setTitle("Game Over!");
+    gameOver(int score){
+        System.out.print(score);
+        scoreUP = score;
+        over.setLayout(null);
+        over.setSize(300, 200);
+        over.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        over.setVisible(true);
+        over.setResizable(false);
+        over.setTitle("Game Over!");
         loadButtons();
         setName();
     }
@@ -33,10 +35,11 @@ public class GameOver extends JFrame implements ActionListener {
 
         //ActionListener
         yes.addActionListener(this);
+        no.addActionListener(this);
 
         //Panggil
-        add(no);
-        add(yes);
+        over.add(no);
+        over.add(yes);
     }
 
     public void setName(){
@@ -49,16 +52,20 @@ public class GameOver extends JFrame implements ActionListener {
         question = new JLabel("Save Score? ");
         question.setBounds(30, 60, 200, 40);
 
-        add(input);
-        add(question);
-        add(username);
+        over.add(input);
+        over.add(question);
+        over.add(username);
     }
 
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == yes){
             uName = username.getText();
-            JOptionPane.showMessageDialog(null, uName);
+            JOptionPane.showMessageDialog(null, "Saved!");
+            over.dispose();
+        }
+        else if(e.getSource() == no){
+            over.dispose();
         }
     }
 }

@@ -1,24 +1,30 @@
-package src;
+package com.src;
 
 import java.awt.*;
 import javax.swing.*;
+
+import com.dataBase.dataBasePull;
+import com.dataBase.runConnection;
+
 import java.awt.event.*;
 
-public class MainMenu extends JFrame implements ActionListener{
-    public JFrame menuFrame;
+public class gameMenu implements ActionListener{
+    JFrame menu = new JFrame();
     public JButton play, score, quit;
     public JLabel title;
 
     static final int SCREEN_HEIGHT = 500;
     static final int SCREEN_WIDTH = 500;
 
-    MainMenu(){
-        setLayout(null);
-        setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-        setResizable(false);
-        setTitle("Jangan baca aku mas");
+    gamePanel panel = new gamePanel();
+
+    gameMenu(){
+        menu.setLayout(null);
+        menu.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+        menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        menu.setVisible(true);
+        menu.setResizable(false);
+        menu.setTitle("Jangan baca aku mas");
         setJudul();
         loadButtons();
     }
@@ -36,32 +42,36 @@ public class MainMenu extends JFrame implements ActionListener{
 
         //Hmmmmmm
         play.addActionListener(this);
-
+        score.addActionListener(this);
         quit.addActionListener(this);
 
         //Panggil ke frame
-        add(play);
-        add(score);
-        add(quit);
+        menu.add(play);
+        menu.add(score);
+        menu.add(quit);
     }
 
     public void setJudul(){
         title = new JLabel("Ular - Ularan");
         title.setBounds(130, 100, 400, 100);
         title.setFont(new Font("Helvetica", Font.BOLD, 40));
-        add(title);
+        menu.add(title);
     }
 
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == play){
-            this.add(new GameFrame());
-            System.exit(0);
+            new gameFrame();
+            // menu.add(panel);
+            // menu.setTitle("Ular - Ularan");
+            // menu.setResizable(false);
+            // menu.setVisible(true);
+            // menu.setLocationRelativeTo(null);
         }
-        // else if(e.getSource() == score){
-        //     this.add(new HighScoreDB());
-        //     System.exit(0);
-        // }
+        else if(e.getSource() == score){
+            dataBasePull db = new dataBasePull();
+            db.dbConn();
+        }
         else if(e.getSource() == quit){
             System.exit(0);
         }

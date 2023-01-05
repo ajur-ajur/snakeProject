@@ -1,11 +1,11 @@
-package src;
+package com.src;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.Random;
 
-public class GamePanel extends JPanel implements ActionListener {
+public class gamePanel extends JPanel implements ActionListener {
 
 	static final int SCREEN_WIDTH = 500;
 	static final int SCREEN_HEIGHT = 500;
@@ -16,6 +16,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	final int y[] = new int[GAME_UNITS];
 	int bodyParts = 3;
 	int foodEaten;
+	int score;
 
 	// types of food
 	int appleX, appleY;
@@ -39,7 +40,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	public Image star;
 	public Image lose;
 
-	GamePanel() {
+	gamePanel() {
 		random = new Random();
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
@@ -252,7 +253,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		g.setFont(new Font("Helvetica", Font.BOLD, 75));
 		FontMetrics metrics2 = getFontMetrics(g.getFont());
 		g.drawString("Game Over", (SCREEN_WIDTH - metrics2.stringWidth("Game Over")) / 2, SCREEN_HEIGHT / 2);
-		new GameOver();
+		new gameOver(foodEaten);
 	}
 
 	@Override
