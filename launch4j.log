@@ -1,0 +1,20 @@
+
+
+Version:	3.50
+CmdLine:	B:\VSCODE\Java\Snake\ular\runUlar.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	B:\VSCODE\Java\Snake\ular\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = C:\Program Files\Java\jdk-19
+Substitute:	PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\TDM-GCC-64\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\MATLAB\R2018a\runtime\win64;C:\Program Files\MATLAB\R2018a\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\lazua\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\lazua\AppData\Local\Programs\Python\Python310\;C:\Users\lazua\AppData\Local\Microsoft\WindowsApps;;C:\Users\lazua\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\lazua\AppData\Roaming\npm;C:\Users\lazua\.dotnet\tools;C:\Program Files\Java\jdk-19\bin
+JRE paths:	C:\Program Files\Java\jdk-19;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\TDM-GCC-64\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\MATLAB\R2018a\runtime\win64;C:\Program Files\MATLAB\R2018a\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\lazua\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\lazua\AppData\Local\Programs\Python\Python310\;C:\Users\lazua\AppData\Local\Microsoft\WindowsApps;;C:\Users\lazua\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\lazua\AppData\Roaming\npm;C:\Users\lazua\.dotnet\tools;C:\Program Files\Java\jdk-19\bin
+Check launcher:	C:\Program Files\Java\jdk-19\bin\javaw.exe (OK)
+Version string: 1.019.000_001 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-19\bin\javaw.exe
+Launcher args:	-jar "B:\VSCODE\Java\Snake\ular\runUlar.exe"
+Args length:	44/32768 chars
+Exit code:	0
