@@ -19,6 +19,13 @@ public class gameOver implements ActionListener {
     public String uName = "";
     public int scoreUP;
 
+    interface overPopUp{
+        public void loadButtons();
+        public void gameOver();
+        public void setName();
+        public void actionPerformed();
+    }
+
     gameOver(int score){
         scoreUP = score;
         over.setLayout(null);
