@@ -16,16 +16,16 @@ Pemain akan menggerakkan sebuah 'ular' yang sedang kelaparan, di papan permainan
 <u>Point System:</u>
 
 >Memakan **Apple** memberikan **1 Point**
->![Apple, 1 Point](/src/main/icons/apple300.png)
+>![Apple, 1 Point](src/main/icons/apple300.ico)
 
 >Memakan **Pineapple** memberikan **2 Points**
->![Pineapple, 2 Points](/src/main/icons/pineapple300.png)
+>![Pineapple, 2 Points](src/main/icons/pineapple300.png)
 
 >Memakan **Banana** memberikan **3 Points**
->![Banana, 3 Points](/src/main/icons/banan300.png)
+>![Banana, 3 Points](src/main/icons/banan300.png)
 
 >Memakan **Star** memberikan **5 Points**
->![Star, 5 Points](/src/main/icons/star300.png)
+>![Star, 5 Points](src/main/icons/star300.png)
 
 Mudah bukan?\
 Mulailah bermain dan raihlah poin sebesar-besarnya!

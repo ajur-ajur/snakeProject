@@ -11,8 +11,8 @@ public class gamePanel extends JPanel implements ActionListener {
 	static final int SCREEN_HEIGHT = 500;
 	static final int UNIT_SIZE = 50;
 	static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT) / (UNIT_SIZE * UNIT_SIZE);
-	static final int DELAY = 140;
-	static final String DIRECTORY = "src/main/icons/"; //kalau manggil tinggal kasih +filename
+	static final int DELAY = 120;
+	static final String DIRECTORY = "ular/src/main/icons/"; //kalau manggil tinggal kasih +filename
 	final int x[] = new int[GAME_UNITS];
 	final int y[] = new int[GAME_UNITS];
 	int bodyParts = 3;
@@ -80,10 +80,6 @@ public class gamePanel extends JPanel implements ActionListener {
 
 	public void draw(Graphics g) {
 		if (running) {
-			// for (int i = 0; i < SCREEN_HEIGHT / UNIT_SIZE; i++) {
-			// 	g.drawLine(i * UNIT_SIZE, 0, i * UNIT_SIZE, SCREEN_HEIGHT);
-			// 	g.drawLine(0, i * UNIT_SIZE, SCREEN_WIDTH, i * UNIT_SIZE);
-			// }
 
 			g.drawImage(apple, appleX, appleY, UNIT_SIZE, UNIT_SIZE, this);
 			g.drawImage(pineapple, pineappleX, pineappleY, UNIT_SIZE, UNIT_SIZE, this);
