@@ -11,7 +11,7 @@ public class gamePanel extends JPanel implements ActionListener {
 	static final int SCREEN_HEIGHT = 500;
 	static final int UNIT_SIZE = 50;
 	static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT) / (UNIT_SIZE * UNIT_SIZE);
-	static final int DELAY = 120;
+	static final int DELAY = 170;
 	static final String DIRECTORY = "ular/src/main/icons/"; //kalau manggil tinggal kasih +filename
 	final int x[] = new int[GAME_UNITS];
 	final int y[] = new int[GAME_UNITS];
